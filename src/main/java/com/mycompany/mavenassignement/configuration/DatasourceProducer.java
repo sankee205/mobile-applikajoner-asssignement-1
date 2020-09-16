@@ -21,10 +21,10 @@ import static com.mycompany.mavenassignement.configuration.DatasourceProducer.JN
 @Singleton
 @DataSourceDefinition(
     name = JNDI_NAME,
-    className = "org.postgresql.ds.PGConnectionPoolDataSource",
-    url = "jdbc:h2:~/chat.db")
+    className = "org.postgresql.ds.PGConnectionPoolDataSource"
+)
 public class DatasourceProducer {
-    public static final String JNDI_NAME =  "java:global/jdbc/default";
+    public static final String JNDI_NAME =  "jdbc/postgresql";
 
     @Resource(lookup = JNDI_NAME)
     DataSource ds;

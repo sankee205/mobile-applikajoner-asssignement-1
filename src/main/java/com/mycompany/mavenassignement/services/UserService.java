@@ -7,10 +7,7 @@ package com.mycompany.mavenassignement.services;
 
 import com.mycompany.mavenassignement.authentication.User;
 
-import java.util.ArrayList;
 import java.util.List;
-import java.util.Map;
-import java.util.UUID;
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.EntityTransaction;

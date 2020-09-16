@@ -19,7 +19,6 @@ import javax.security.enterprise.identitystore.IdentityStoreHandler;
 import javax.security.enterprise.identitystore.PasswordHash;
 import javax.servlet.http.HttpServletRequest;
 import javax.sql.DataSource;
-import javax.validation.constraints.Email;
 import javax.validation.constraints.NotBlank;
 import javax.ws.rs.*;
 import javax.ws.rs.core.Context;
@@ -61,8 +60,8 @@ import org.eclipse.microprofile.jwt.JsonWebToken;
 @Log
 public class AuthenticationService {
 
-    private static final String INSERT_USERGROUP = "INSERT INTO AUSERGROUP(NAME,USERID) VALUES (?,?)";
-    private static final String DELETE_USERGROUP = "DELETE FROM AUSERGROUP WHERE NAME = ? AND USERID = ?";
+    private static final String INSERT_USERGROUP = "INSERT INTO USERGROUP(NAME,USERID) VALUES (?,?)";
+    private static final String DELETE_USERGROUP = "DELETE FROM USERGROUP WHERE NAME = ? AND USERID = ?";
 
     @Inject
     KeyService keyService;
@@ -78,7 +77,7 @@ public class AuthenticationService {
      * The application server will inject a DataSource as a way to communicate 
      * with the database.
      */
-    @Resource(lookup = "java:global/jdbc/default")
+    @Resource(lookup = "jdbc/postgresql")
     DataSource dataSource;
     
     /** 
@@ -155,9 +154,9 @@ public class AuthenticationService {
     }
 
     /**
-     * Does an insert into the AUSER and AUSERGROUP tables. It creates a SHA-256
+     * Does an insert into the USER and AUSERGROUP tables. It creates a SHA-256
      * hash of the password and Base64 encodes it before the user is created in
-     * the database. The authentication system will read the AUSER table when
+     * the database. The authentication system will read the ASER table when
      * doing an authentication.
      *
      * @param uid

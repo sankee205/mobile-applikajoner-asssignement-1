@@ -12,17 +12,8 @@ import com.mycompany.mavenassignement.authentication.User;
 
 
 import java.util.List;
-import java.util.UUID;
-import javax.persistence.EntityManager;
 import javax.ws.rs.core.Response;
-import org.hibernate.jpa.AvailableSettings;
-import javax.persistence.EntityManager;
-import javax.persistence.EntityManagerFactory;
-import javax.persistence.EntityTransaction;
-import javax.persistence.Persistence;
-import javax.persistence.PersistenceContext;
-import javax.ws.rs.core.Context;
-import javax.ws.rs.core.SecurityContext;
+
 
 /**
  *

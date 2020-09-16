@@ -18,7 +18,7 @@ import org.eclipse.microprofile.auth.LoginConfig;
  * @author trygve
  */
 @DataSourceDefinition(
-        name = "java:global/jdbc/default",
+        name = "jdbc/postgresql",
         className = "org.postgresql.ds.PGConnectionPoolDataSource",
         serverName = "localhost",  // set the property
         portNumber = 5432,        // set the property
@@ -26,9 +26,9 @@ import org.eclipse.microprofile.auth.LoginConfig;
         user = "postgres",
         password = "Telenos2016")
 @DatabaseIdentityStoreDefinition(
-        dataSourceLookup = "java:global/jdbc/default",
-        callerQuery="select password from auser where userid = ?",
-        groupsQuery="select name from ausergroup where userid  = ?",
+        dataSourceLookup = "jdbc/postgresql",
+        callerQuery="select password from user where id = ?",
+        groupsQuery="select name from ausergroup where id  = ?",
         hashAlgorithm = PasswordHash.class,
         priority = 80)
 @DeclareRoles({Group.ADMIN,Group.USER})

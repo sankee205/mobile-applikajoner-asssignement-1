@@ -6,22 +6,16 @@
 package com.mycompany.mavenassignement.resources;
 
 import com.mycompany.mavenassignement.Item;
-import com.mycompany.mavenassignement.Photo;
-import com.mycompany.mavenassignement.authentication.User;
 import com.mycompany.mavenassignement.services.FantService;
 import com.mycompany.mavenassignement.services.UserService;
 import java.util.List;
-import javax.inject.Inject;
 import javax.json.JsonArray;
-import javax.json.JsonObjectBuilder;
 import javax.ws.rs.Consumes;
 import javax.ws.rs.GET;
 import javax.ws.rs.POST;
-import javax.ws.rs.PUT;
 import javax.ws.rs.Path;
 import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
-import javax.ws.rs.core.Response;
 
 
 /**

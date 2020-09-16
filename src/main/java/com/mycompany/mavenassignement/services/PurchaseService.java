@@ -7,7 +7,6 @@ package com.mycompany.mavenassignement.services;
 
 import com.mycompany.mavenassignement.Purchase;
 import java.util.List;
-import java.util.UUID;
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.EntityTransaction;

@@ -15,22 +15,29 @@ import javax.ejb.Startup;
 import javax.inject.Inject;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
-import java.util.Date;
+
 
 @Singleton
 @Startup
 public class RunOnStartup {
+  
     @PersistenceContext
     EntityManager em;
-
+    
+    @Inject
+    FantService fantservice;
     
     @PostConstruct
     public void init() {
-        long groups = (long) em.createQuery("SELECT count(g.name) from Group g").getSingleResult();
+        long groups = (long) em.createQuery("SELECT count(g.name) from agroup g").getSingleResult();
         if(groups == 0) {
             em.persist(new Group(Group.USER));
             em.persist(new Group(Group.ADMIN));
         }
-
+        
+        long users = (long)em.createQuery("SELECT count(u.userid) from User u").getSingleResult();
+        if(users == 0){
+            fantservice.getItems();
+        }
     }
 }
