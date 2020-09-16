@@ -9,30 +9,25 @@ package com.mycompany.mavenassignement.services;
 import com.mycompany.mavenassignement.Item;
 
 import java.util.List;
+import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
-import javax.persistence.EntityManagerFactory;
 import javax.persistence.EntityTransaction;
 import javax.persistence.NoResultException;
-import javax.persistence.Persistence;
+import javax.persistence.PersistenceContext;
 import javax.persistence.TypedQuery;
 
 /**
  *
  * @author sanderkeedklang
  */
+@Stateless
 public class ItemService {
-     
-    private static final EntityManagerFactory ENTITY_MANAGER_FACTORY = Persistence.createEntityManagerFactory("com.mycompany_mavenassignement_war_1.0-SNAPSHOTPU");
-    public ItemService(){
-        
 
-    }
+    @PersistenceContext
+    EntityManager em;
     
     public List<Item> getAllItems(){
-        EntityManager em = ENTITY_MANAGER_FACTORY.createEntityManager();
-
-        String query = "from Item";
-
+        String query = "select i from Item i";
 
         TypedQuery<Item> tq = em.createQuery(query, Item.class);
         List<Item> items = null;
@@ -45,14 +40,11 @@ public class ItemService {
         catch(NoResultException e){
             e.printStackTrace();
         }
-        finally{
-            em.close();
-        }
+
         return items;
     }
     
     public Item addItem(Item item){
-        EntityManager em = ENTITY_MANAGER_FACTORY.createEntityManager();
         EntityTransaction et = null;
         try{
             et = em.getTransaction();
@@ -74,7 +66,6 @@ public class ItemService {
     }
     
     public Item getItem(String itemId){
-        EntityManager em = ENTITY_MANAGER_FACTORY.createEntityManager();
         String query = "SELECT i FROM Item i WHERE i.id = :itemId";
         
         TypedQuery<Item> tq = em.createQuery(query, Item.class);
@@ -87,14 +78,11 @@ public class ItemService {
         catch(NoResultException e){
             e.printStackTrace();
         }
-        finally{
-            em.close();
-        }
+        
         return item;
     }
     
     public Item DeleteItem(String itemid){
-        EntityManager em = ENTITY_MANAGER_FACTORY.createEntityManager();
         EntityTransaction et = null;
         Item item = null;
         try{

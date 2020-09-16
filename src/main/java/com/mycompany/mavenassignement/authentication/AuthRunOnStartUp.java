@@ -24,7 +24,7 @@ public class AuthRunOnStartUp {
 
     @PostConstruct
     public void init() {
-        long groups = (long) em.createQuery("SELECT count(g.name) from agroup g").getSingleResult();
+        long groups = (long) em.createQuery("SELECT count(g.name) from Group g").getSingleResult();
         if(groups == 0){
             em.persist(new Group(Group.USER));
             em.persist(new Group(Group.ADMIN));

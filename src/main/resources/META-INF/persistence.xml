@@ -1,16 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <persistence version="2.2" xmlns="http://xmlns.jcp.org/xml/ns/persistence" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/persistence http://xmlns.jcp.org/xml/ns/persistence/persistence_2_2.xsd">
   <persistence-unit name="com.mycompany_mavenassignement_war_1.0-SNAPSHOTPU" transaction-type="JTA">
-    <jta-data-source>jdbc/postgresql</jta-data-source>
-    <!-- Define the class for Hibernate which implements JPA -->
-    <!-- Define the object that should be persisted in the database -->
-    <!--<provider>org.eclipse.persistence.jpa.PersistenceProvider</provider>
-    <class>com.mycompany.mavenassignement.authentication.User</class>-->
+    <jta-data-source>java:app/jdbc/postgresql</jta-data-source>
     <properties>
-      <property name="javax.persistence.jdbc.url" value="jdbc:postgresql://localhost:5432/postgres"/>
-      <property name="javax.persistence.jdbc.user" value="postgres"/>
-      <property name="javax.persistence.jdbc.driver" value="org.postgresql.Driver"/>
-      <property name="javax.persistence.jdbc.password" value="Telenos2016"/>
       <property name="javax.persistence.schema-generation.database.action" value="create"/>
     </properties>
   </persistence-unit>

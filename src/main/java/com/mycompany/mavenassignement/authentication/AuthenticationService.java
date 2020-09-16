@@ -77,7 +77,7 @@ public class AuthenticationService {
      * The application server will inject a DataSource as a way to communicate 
      * with the database.
      */
-    @Resource(lookup = "jdbc/postgresql")
+    @Resource(lookup = "java:app/jdbc/postgresql")
     DataSource dataSource;
     
     /** 

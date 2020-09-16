@@ -9,6 +9,8 @@ import com.mycompany.mavenassignement.Item;
 import com.mycompany.mavenassignement.services.FantService;
 import com.mycompany.mavenassignement.services.UserService;
 import java.util.List;
+import javax.ejb.Stateless;
+import javax.inject.Inject;
 import javax.json.JsonArray;
 import javax.ws.rs.Consumes;
 import javax.ws.rs.GET;
@@ -24,9 +26,13 @@ import javax.ws.rs.core.MediaType;
  */
 @Produces(MediaType.APPLICATION_JSON)
 @Path("fant")
+@Stateless
 public class FantServiceResource {
-    FantService fantservice = new FantService();
-    UserService userservice = new UserService();
+    @Inject
+    FantService fantservice ;
+    
+    @Inject
+    UserService userservice;
     
     
     @GET

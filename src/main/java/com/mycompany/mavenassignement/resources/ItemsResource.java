@@ -8,6 +8,8 @@ package com.mycompany.mavenassignement.resources;
 import com.mycompany.mavenassignement.Item;
 import com.mycompany.mavenassignement.services.ItemService;
 import java.util.List;
+import javax.ejb.Stateless;
+import javax.inject.Inject;
 import javax.ws.rs.GET;
 import javax.ws.rs.Path;
 import javax.ws.rs.Produces;
@@ -19,8 +21,10 @@ import javax.ws.rs.core.MediaType;
  */
 @Produces(MediaType.APPLICATION_JSON)
 @Path("items")
+@Stateless
 public class ItemsResource {
-    ItemService itemService = new ItemService();
+    @Inject
+    ItemService itemService;
     
     @GET
     public List<Item> getItems(){
