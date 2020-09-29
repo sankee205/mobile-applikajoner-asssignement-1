@@ -41,6 +41,7 @@ import javax.ws.rs.core.SecurityContext;
 import javax.ws.rs.core.StreamingOutput;
 import net.coobird.thumbnailator.Thumbnails;
 import org.eclipse.microprofile.config.inject.ConfigProperty;
+import org.eclipse.microprofile.jwt.JsonWebToken;
 import org.glassfish.jersey.media.multipart.ContentDisposition;
 import org.glassfish.jersey.media.multipart.FormDataBodyPart;
 import org.glassfish.jersey.media.multipart.FormDataMultiPart;
@@ -62,8 +63,8 @@ public class FantServiceResource {
     @Context
     SecurityContext securityContext;
 
-    //@Inject
-    //JsonWebToken principal;
+    @Inject
+    JsonWebToken principal;
 
     @PersistenceContext
     EntityManager entityManager;
